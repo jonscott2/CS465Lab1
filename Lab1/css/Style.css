@@ -12,6 +12,7 @@
   grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
   gap: 40px; /* space between items */
   padding: 20px;
+  align-items: center; /* vertically center items in the grid row */
 }
 
 .navbar {
@@ -19,7 +20,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #333;
   color: white;
   flex-wrap: wrap;
 }
@@ -28,18 +28,38 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
+}
+
+.nav-links li {
+  /* make each link a button container */
 }
 
 .nav-links li a {
-  color: white;
+  display: inline-block;
+  background: #ffffff; /* pure white button */
+  color: #222; /* dark text for contrast */
   text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s;
+  font-size: 0.95rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border-color: black;
+  /* subtle darker lower edge to simulate shading without being white-on-white */
+  box-shadow: 0 5px 0 #e0e0e0;
+  border: 1px solid #d6d6d6; /* light gray outline */
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease;
 }
 
 .nav-links li a:hover {
-  color: orange;
+  transform: translateY(-2px); /* slight lift */
+  box-shadow: 0 8px 0 #d0d0d0;
+  background-color: #ffffff;
+}
+
+.nav-links li a:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 0 #cfcfcf; /* pressed effect */
+  background-color: #f7f7f7;
 }
 
 /* Reset default margin and padding */
@@ -53,6 +73,21 @@ body, html {
   height: 100%;
 }
 
+/* center the main content and make it occupy the middle 50% of the viewport */
+.page-wrapper {
+  width: 50vw; /* middle half of the screen */
+  margin: 0 auto; /* center horizontally */
+  min-height: 100vh;
+  background-color: white; /* keep content background white */
+}
+
+/* make the outer page background visible so the page appears centered */
+body {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -64,14 +99,16 @@ body, html {
 .MasterTheBow {
   width: 33.33%; /* Each image takes up 1/3 of the width */
   display: flex;
-  justify-content: center;
-  align-items: right;
+  justify-content: flex-start;
+  align-items: center;
+  transform: translateX(-1.1cm); /* shift left by 2cm */
 }
 
 .TopLogo {
   width: 33.33%; /* Each image takes up 1/3 of the width */
   display: flex;
    margin-right: 2cm;
+  align-items: center;
 }
 
 .TopLogo img {
@@ -81,36 +118,76 @@ body, html {
 }
 
 .MasterTheBow img {
-  max-width: 200%;
+  max-width: 400%;
   height: auto;
-  object-fit: cover;
+  object-fit: right;
 }
 
 .SearchBar {
-  width: 100%; /* The search bar takes up the remaining 1/3 of the width */
+  width: 150%; /* The search bar takes up the remaining 1/3 of the width */
   height: auto;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  align-items: center; /* ensure the input is vertically centered in the cell */
 }
 
 .search-input {
-  width: 80%; /* Make the search bar smaller and centered */
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 25px;
+  width: 60%; /* keep it reasonably wide but centered */
+  max-width: 420px;
+  height: 34px; /* slightly taller for readability but more rectangular */
+  padding: 6px 12px; /* smaller vertical padding to create rectangular appearance */
+  font-size: 0.95rem;
+  line-height: 1.2;
+  border-radius: 6px; /* more rectangular corners */
   border: 2px solid #ccc;
 
   /* place search icon inside the input on the right */
   background-image: url("../HTML/Images/SearchIcon.png");
   background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 50px 50px;
-  padding-right: 40px; /* make room for the icon */
+  background-position: right 3px center;
+  background-size: 25px 25px; /* keep icon small to match height */
+  padding-right: 10px; /* make room for the icon */;
 }
 
 .search-input:focus {
   outline: gray;
   border-color: #0057cc;
+}
+
+/* Main content area directly under the navbar, full width of page-wrapper */
+.main-container {
+  width: 100%;
+  padding: 24px 12px 48px; /* spacing inside the wrapper */
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* left 2/3, right 1/3 */
+  gap: 24px;
+  align-items: start;
+}
+
+.left-section, .right-section {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.icon-box {
+  background: #fff;
+  border: 1px dashed #ddd;
+  padding: 20px;
+  text-align: center;
+  border-radius: 4px;
 }
 
 /* Search icon on the right side */
