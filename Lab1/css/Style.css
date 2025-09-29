@@ -1,3 +1,52 @@
+/* Responsive: shrink .main-container when window shrinks */
+@media (max-width: 900px) {
+  .main-container {
+    padding: 4vw;
+    grid-template-columns: 1fr;
+    gap: 2vw;
+  }
+}
+@media (max-width: 600px) {
+  .main-container {
+    padding: 2vw;
+    grid-template-columns: 1fr;
+    gap: 1vw;
+  }
+}
+/* Responsive adjustments for tablets */
+@media (max-width: 900px) {
+  .icon-box-Small {
+    width: 30vw;
+    margin-left: 0;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+  .icon-box-Small {
+    width: 90vw;
+    margin-left: 0;
+  }
+}
+
+
+/* .icon-box-Small as a column on the right side of left-section */
+.left-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+/* Shift .icon-box-Small to the right by 5 inches */
+.icon-box-Small {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  width: 75px;
+  height: auto;
+  margin-left: 500px;
+}
+
 .flex-container {
   display: flex;
   align-items: center;      /* Align items vertically */
@@ -170,10 +219,13 @@ body {
 }
 
 /* Main content area directly under the navbar, full width of page-wrapper */
+/* Responsive .main-container that never exceeds .page-wrapper */
 .main-container {
   width: 100%;
+  max-width: 100%;
   padding: 10px 10px 10px; /* spacing inside the wrapper */
   box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .main-container {
