@@ -157,7 +157,7 @@ body {
 /* Main content area directly under the navbar, full width of page-wrapper */
 .main-container {
   width: 100%;
-  padding: 24px 12px 48px; /* spacing inside the wrapper */
+  padding: 10px 10px 10px; /* spacing inside the wrapper */
   box-sizing: border-box;
 }
 
@@ -171,21 +171,19 @@ body {
 .left-section, .right-section {
   background: #fafafa;
   padding: 16px;
-  border-radius: 6px;
+  border-radius: 2px;
   border: 1px solid #eee;
 }
 
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 12px;
+  margin-top: 5px;
 }
 
 .icon-box {
   background: #fff;
-  border: 1px dashed #ddd;
-  padding: 20px;
+  padding: 5px;
   text-align: center;
   border-radius: 4px;
 }
