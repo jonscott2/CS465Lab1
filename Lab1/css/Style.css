@@ -1,4 +1,21 @@
-/* Responsive: shrink .main-container when window shrinks */
+/* Three equally sized horizontal sections */
+.three-bottom-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+/* Scale image within .icon-box-Large, but values are exaggerated */
+.icon-box-Large img {
+  max-width: 3500%;
+  max-height: 3600%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+/* Stack columns vertically and adjust spacing on medium screens */
 @media (max-width: 900px) {
   .main-container {
     padding: 4vw;
@@ -6,6 +23,8 @@
     gap: 2vw;
   }
 }
+
+/* Further stack and reduce spacing on small screens */
 @media (max-width: 600px) {
   .main-container {
     padding: 2vw;
@@ -13,7 +32,8 @@
     gap: 1vw;
   }
 }
-/* Responsive adjustments for tablets */
+
+/* Shrink .icon-box-Small on tablets */
 @media (max-width: 900px) {
   .icon-box-Small {
     width: 30vw;
@@ -21,7 +41,7 @@
   }
 }
 
-/* Responsive adjustments for mobile */
+/* Shrink .icon-box-Small on mobile */
 @media (max-width: 600px) {
   .icon-box-Small {
     width: 90vw;
@@ -29,41 +49,69 @@
   }
 }
 
-
-/* .icon-box-Small as a column on the right side of left-section */
+/* Layout left section with two columns: main content and sidebar */
 .left-section {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 4fr 1fr;
   gap: 16px;
 }
 
-/* Shift .icon-box-Small to the right by 5 inches */
-.icon-box-Small {
-  grid-column: 2;
-  display: flex;
-  flex-direction: column;
-  width: 75px;
-  height: auto;
-  margin-left: 500px;
+/* Place .icon-box-Large in the first column */
+.icon-box-Large {
+  grid-column: 1;
 }
 
+/* Redundant rule, already defined above with extreme scaling */
+.icon-box-Large img {
+  width: 3500%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  justify-content: left;
+}
+
+/* Position and style for .icon-box-Small in the right column */
+.icon-box-Small {
+  margin-left: auto;
+  margin-right: 40px;
+  grid-column: 2;
+  width: auto;
+  min-width: 50px;
+  max-width: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: stretch;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+/* Tiny width assigned to .icon-box-Large container */
+.icon-box-Large {
+  width: 10px;
+  height: auto;
+}
+
+/* Horizontal flex layout with spacing and gray background */
 .flex-container {
   display: flex;
-  align-items: center;      /* Align items vertically */
-  justify-content: center;  /* Center content horizontally */
-  gap: 20px;                /* Space between items */
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   padding: 20px;
   background-color: #c4c4c4;
 }
 
+/* 3-column grid layout for grouped items */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  gap: 40px; /* space between items */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
   padding: 20px;
-  align-items: center; /* vertically center items in the grid row */
+  align-items: center;
 }
 
+/* Responsive horizontal navbar with spacing */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -73,8 +121,7 @@
   flex-wrap: wrap;
 }
 
-
-/* Make .nav-links fit the width of .page-wrapper */
+/* Flex list layout for navigation links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -85,169 +132,185 @@
 }
 
 .nav-links li {
-  /* make each link a button container */
+  /* Placeholder for styling individual list items */
 }
 
+/* Style for navigation buttons */
 .nav-links li a {
   display: inline-block;
-  background: #ffffff; /* pure white button */
-  color: #222; /* dark text for contrast */
+  background: #ffffff;
+  color: #222;
   text-decoration: none;
   font-size: 0.95rem;
   padding: 8px 14px;
   border-radius: 6px;
   border-color: black;
-  /* subtle darker lower edge to simulate shading without being white-on-white */
   box-shadow: 0 5px 0 #e0e0e0;
-  border: 1px solid #d6d6d6; /* light gray outline */
+  border: 1px solid #d6d6d6;
   transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease;
 }
 
+/* Hover effect for nav buttons */
 .nav-links li a:hover {
-  transform: translateY(-2px); /* slight lift */
+  transform: translateY(-2px);
   box-shadow: 0 8px 0 #d0d0d0;
   background-color: #ffffff;
 }
 
+/* Active (clicked) state for nav buttons */
 .nav-links li a:active {
   transform: translateY(0);
-  box-shadow: 0 3px 0 #cfcfcf; /* pressed effect */
+  box-shadow: 0 3px 0 #cfcfcf;
   background-color: #f7f7f7;
 }
 
-/* Reset default margin and padding */
+/* Reset spacing and use border-box model globally */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Full height for page layout */
 body, html {
   height: 100%;
 }
 
-/* center the main content and make it occupy the middle 50% of the viewport */
+/* Center page-wrapper and limit width to 50% of viewport */
 .page-wrapper {
-  width: 50vw; /* middle half of the screen */
-  margin: 0 auto; /* center horizontally */
+  width: 50vw;
+  margin: 0 auto;
   min-height: 100vh;
-  background-color: white; /* keep content background white */
+  background-color: white;
 }
 
-/* make the outer page background visible so the page appears centered */
+/* Center content horizontally inside the body */
 body {
   background-color: #f2f2f2;
   display: flex;
   justify-content: center;
 }
 
+/* Flexbox container occupying 1/3 of viewport dimensions */
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 33.33%;
-  height: 33.33%; /* Take up 1/3 of the screen height */
+  height: 33.33%;
 }
 
-/* Lock .MasterTheBow to the top right edge of .page-wrapper, keep its width/height, prevent vertical movement */
+/* Allow absolute positioning within page-wrapper */
 .page-wrapper {
   position: relative;
 }
-/* Shrink .MasterTheBow by 50% */
+
+/* Position .MasterTheBow at top-right and scale it down */
 .MasterTheBow {
   position: absolute;
   top: 0;
   right: 0;
-  width: 16.665%; /* 50% of previous width */
+  width: 16.665%;
   height: auto;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   box-sizing: border-box;
-  transform: scale(0.6); /* Shrink content visually by 50% */
+  transform: scale(0.6);
   transform-origin: top right;
 }
 
+/* Logo container aligned to left */
 .TopLogo {
-  width: 33.33%; /* Each image takes up 1/3 of the width */
+  width: 33.33%;
   display: flex;
-   margin-right: 2cm;
+  margin-right: 2cm;
   align-items: center;
 }
 
+/* Scale up logo image significantly */
 .TopLogo img {
   max-width: 500%;
   height: auto;
-  
 }
 
+/* Scale up image inside .MasterTheBow */
 .MasterTheBow img {
   max-width: 400%;
   height: auto;
   object-fit: right;
 }
 
+/* Layout for the search bar section */
 .SearchBar {
-  width: 150%; /* The search bar takes up the remaining 1/3 of the width */
+  width: 150%;
   height: auto;
   display: flex;
   justify-content: left;
-  align-items: center; /* ensure the input is vertically centered in the cell */
+  align-items: center;
 }
 
+/* Styled input field with embedded search icon */
 .search-input {
-  width: 60%; /* keep it reasonably wide but centered */
+  width: 60%;
   max-width: 420px;
-  height: 34px; /* slightly taller for readability but more rectangular */
-  padding: 6px 12px; /* smaller vertical padding to create rectangular appearance */
+  height: 34px;
+  padding: 6px 12px;
   font-size: 0.95rem;
   line-height: 1.2;
-  border-radius: 6px; /* more rectangular corners */
+  border-radius: 6px;
   border: 2px solid #ccc;
-
-  /* place search icon inside the input on the right */
   background-image: url("../HTML/Images/SearchIcon.png");
   background-repeat: no-repeat;
   background-position: right 3px center;
-  background-size: 25px 25px; /* keep icon small to match height */
-  padding-right: 10px; /* make room for the icon */;
+  background-size: 25px 25px;
+  padding-right: 10px;
 }
 
+/* Highlight border on focus */
 .search-input:focus {
   outline: gray;
   border-color: #0057cc;
 }
 
-/* Main content area directly under the navbar, full width of page-wrapper */
-/* Responsive .main-container that never exceeds .page-wrapper */
+/* Full-width grid layout for main content area */
 .main-container {
   width: 100%;
   max-width: 100%;
-  padding: 10px 10px 10px; /* spacing inside the wrapper */
+  padding: 10px 10px 10px;
   box-sizing: border-box;
   overflow-x: auto;
 }
 
+/* Define two-column layout for main content */
 .main-container {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* left 2/3, right 1/3 */
+  grid-template-columns: 2fr 1fr;
+  align-items: stretch;
+  height: 100%;
+  grid-auto-rows: 1fr;
   gap: 24px;
   align-items: start;
 }
 
+/* Add colored border and rounded corners to sections */
 .left-section, .right-section {
   background: #fafafa;
   padding: 16px;
-  border-radius: 2px;
-  border: 1px solid #eee;
+  border-radius: 16px;
+  border: 12.5px solid #0fb9e3;
+  height: 350px;
+  margin-left: -5px;
 }
 
+/* Grid of icon tiles inside section */
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-top: 5px;
 }
 
+/* Individual icon boxes with styling */
 .icon-box {
   background: #fff;
   padding: 5px;
@@ -255,14 +318,15 @@ body {
   border-radius: 4px;
 }
 
-/* Search icon on the right side */
+/* Search icon styling (for button or image) */
 .search-icon {
-  width: 20px; /* Icon size */
+  width: 20px;
   height: 20px;
   cursor: pointer;
-  color: blue; /* Blue color */
+  color: blue;
 }
 
+/* Visual feedback on hover */
 .search-icon:hover {
-  opacity: 0.7; /* Slight hover effect */
+  opacity: 0.7;
 }
