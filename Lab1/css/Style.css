@@ -25,10 +25,14 @@
 }
 
 
+/* Make .nav-links fit the width of .page-wrapper */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
 }
 
 .nav-links li {
@@ -96,12 +100,23 @@ body {
   height: 33.33%; /* Take up 1/3 of the screen height */
 }
 
+/* Lock .MasterTheBow to the top right edge of .page-wrapper, keep its width/height, prevent vertical movement */
+.page-wrapper {
+  position: relative;
+}
+/* Shrink .MasterTheBow by 50% */
 .MasterTheBow {
-  width: 33.33%; /* Each image takes up 1/3 of the width */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16.665%; /* 50% of previous width */
+  height: auto;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  transform: translateX(-1.1cm); /* shift left by 2cm */
+  justify-content: flex-end;
+  align-items: flex-start;
+  box-sizing: border-box;
+  transform: scale(0.6); /* Shrink content visually by 50% */
+  transform-origin: top right;
 }
 
 .TopLogo {
