@@ -41,6 +41,8 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   padding: 1rem 2rem;
   color: white;
   flex-wrap: wrap;
+  position: relative;
+  top: -50px;
 }
 
 .nav-links {
@@ -132,20 +134,23 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
 /* 🔍 SEARCH BAR            */
 /* ========================= */
 .SearchBar {
-  width: 50%;
-  height: auto;
+  width: 40%;
+  min-height: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  position: relative;
+  top: -75px;
 }
 
 .search-input {
   width: 60%;
   max-width: 420px;
-  height: 34px;
+  height: 48px;
   padding: 6px 12px 6px 12px;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   border-radius: 6px;
   border: 2px solid #ccc;
   background-image: url("../HTML/Images/SearchIcon.png");
@@ -174,6 +179,9 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   grid-auto-rows: 1fr;
   gap: 24px;
   align-items: stretch;
+  position: relative;
+  left: -45px;
+  top: -30px;
 }
 
 .left-section, .right-section {
