@@ -233,7 +233,10 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   overflow: visible;
 }
 
+/* Remove manual vertical shift */
 .icon-box-Large img {
+  /* position: relative; */
+  /* top: -10px; */
   width: 100%;
   height: 100%;
   max-width: 100%;
@@ -242,11 +245,10 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   display: block;
   margin: 0 auto;
   border-radius: 50px;
-  position: relative;
-  top: -10px;
+  /* Remove position and top */
 }
 
-/* Tooltip for Large Icon */
+/* Tooltip */
 .icon-box-Large .large-tooltip {
   display: none;
   position: absolute;
@@ -268,7 +270,7 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   pointer-events: none;
 }
 
-.icon-box-Large img:hover ~ .large-tooltip {
+.icon-box-Large:hover .large-tooltip {
   display: block;
 }
 
