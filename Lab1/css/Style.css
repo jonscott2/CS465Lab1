@@ -332,6 +332,20 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
 }
 
 /* ========================= */
+/*  Footer Links            */
+/* ========================= */
+
+.design-reference {
+  height: auto;
+  width: 20vw;
+  max-width: 100%;
+  display: block;
+  position: relative;
+  top: -20px;
+  right: -30vw;
+}
+
+/* ========================= */
 /* 📱 MEDIA QUERIES         */
 /* ========================= */
 @media (max-width: 900px) {
