@@ -268,7 +268,7 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   pointer-events: none;
 }
 
-.icon-box-Large img:hover + .large-tooltip {
+.icon-box-Large img:hover ~ .large-tooltip {
   display: block;
 }
 
