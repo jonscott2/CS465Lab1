@@ -228,6 +228,9 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 100;
+  overflow: visible;
 }
 
 .icon-box-Large img {
@@ -241,6 +244,32 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   border-radius: 50px;
   position: relative;
   top: -10px;
+}
+
+/* Tooltip for Large Icon */
+.icon-box-Large .large-tooltip {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #222;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  min-width: 220px;
+  max-width: 320px;
+  white-space: normal;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border: 2px solid #0fb9e3;
+  text-align: center;
+  pointer-events: none;
+}
+
+.icon-box-Large img:hover + .large-tooltip {
+  display: block;
 }
 
 /* Small Icon */
