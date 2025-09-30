@@ -1,9 +1,21 @@
+@media (max-width: 700px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: stretch;
+  }
+  .nav-links li a {
+    width: 100%;
+    text-align: center;
+  }
+}
 /* Three equally sized horizontal sections */
 .three-bottom-sections {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 24px;
   width: 100%;
+  box-sizing: border-box;
 }
 /* Scale image within .icon-box-Large, but values are exaggerated */
 .icon-box-Large img {
@@ -174,14 +186,20 @@
 /* Full height for page layout */
 body, html {
   height: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #7f9cf5;
 }
 
 /* Center page-wrapper and limit width to 50% of viewport */
 .page-wrapper {
   width: 50vw;
+  max-width: 100vw;
+  min-width: 320px;
   margin: 0 auto;
   min-height: 100vh;
   background-color: white;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Center content horizontally inside the body */
@@ -277,20 +295,16 @@ body {
 .main-container {
   width: 100%;
   max-width: 100%;
-  padding: 10px 10px 10px;
   box-sizing: border-box;
   overflow-x: auto;
-}
-
-/* Define two-column layout for main content */
-.main-container {
+  margin: 0 auto;
+  padding: 10px;
+  /* Prevent children from overflowing */
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   align-items: stretch;
-  height: 100%;
   grid-auto-rows: 1fr;
   gap: 24px;
-  align-items: start;
 }
 
 /* Add colored border and rounded corners to sections */
@@ -329,4 +343,54 @@ body {
 /* Visual feedback on hover */
 .search-icon:hover {
   opacity: 0.7;
+}
+.bottom-left, .bottom-center, .bottom-right {
+  flex: 1 1 0;
+  border: 2px solid gray;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.bottom-center img{
+  margin: 0 12px;
+  height: auto;
+  max-width: 33vw;
+  display: block;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.bottom-left button, .bottom-right button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #222;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #d6d6d6;
+  box-shadow: 0 5px 0 #e0e0e0;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease;
+  font-family: 'Roboto', Arial, sans-serif;
+  cursor: pointer;
+}
+
+.bottom-left button:hover, .bottom-right button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #d0d0d0;
+  background-color: #ffffff;
+}
+
+.bottom-left button:active, .bottom-right button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 0 #cfcfcf;
+  background-color: #f7f7f7;
+}
+
+/* Make sure links and buttons inherit the color */
+a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
+  color: #2d317e;
 }
