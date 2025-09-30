@@ -1,135 +1,39 @@
-@media (max-width: 700px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    align-items: stretch;
-  }
-  .nav-links li a {
-    width: 100%;
-    text-align: center;
-  }
-}
-/* Three equally sized horizontal sections */
-.three-bottom-sections {
-  display: flex;
-  gap: 24px;
-  width: 100%;
+/* ========================= */
+/* 🧼 GLOBAL RESET + BASE   */
+/* ========================= */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  justify-content: flex-end;
-  padding-left: 5vw;
-}
-/* Scale image within .icon-box-Large, but values are exaggerated */
-.icon-box-Large img {
-  max-width: 3500%;
-  max-height: 3600%;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  border-radius: 50px;
 }
 
-/* Stack columns vertically and adjust spacing on medium screens */
-@media (max-width: 900px) {
-  .main-container {
-    padding: 4vw;
-    grid-template-columns: 1fr;
-    gap: 2vw;
-  }
-}
-
-/* Further stack and reduce spacing on small screens */
-@media (max-width: 600px) {
-  .main-container {
-    padding: 2vw;
-    grid-template-columns: 1fr;
-    gap: 1vw;
-  }
-}
-
-/* Shrink .icon-box-Small on tablets */
-@media (max-width: 900px) {
-  .icon-box-Small {
-    width: 30vw;
-    margin-left: 0;
-  }
-}
-
-/* Shrink .icon-box-Small on mobile */
-@media (max-width: 600px) {
-  .icon-box-Small {
-    width: 90vw;
-    margin-left: 0;
-  }
-}
-
-/* Layout left section with two columns: main content and sidebar */
-.left-section {
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  gap: 16px;
-  width: 30vw;
-  box-sizing: border-box;
-  margin-left: 4.5vw !important;
-  margin-right: auto !important;
-}
-
-/* Place .icon-box-Large in the first column */
-.icon-box-Large {
-  grid-column: 1;
-}
-
-/* Redundant rule, already defined above with extreme scaling */
-.icon-box-Large img {
-  width: 3500%;
+html, body {
   height: 100%;
-  object-fit: contain;
-  display: block;
-  justify-content: left;
-}
-
-/* Position and style for .icon-box-Small in the right column */
-.icon-box-Small {
-  margin-left: auto;
-  margin-right: 40px;
-  grid-column: 2;
-  width: auto;
-  min-width: 50px;
-  max-width: 70px;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #7f9cf5;
+  background-color: #f2f2f2;
   display: flex;
-  flex-direction: column;
-  justify-content: right;
-  align-items: stretch;
-  margin-top: 0;
-  align-self: flex-start;
-}
-
-/* Tiny width assigned to .icon-box-Large container */
-.icon-box-Large {
-  width: 10px;
-  height: auto;
-}
-
-/* Horizontal flex layout with spacing and gray background */
-.flex-container {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  background-color: #c4c4c4;
 }
 
-/* 3-column grid layout for grouped items */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  padding: 20px;
-  align-items: center;
+a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
+  color: #2d317e;
 }
 
-/* Responsive horizontal navbar with spacing */
+/* ========================= */
+/* 📦 PAGE STRUCTURE        */
+/* ========================= */
+.page-wrapper {
+  width: 50vw;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: white;
+  position: relative;
+}
+
+/* ========================= */
+/* 🧭 NAVIGATION BAR        */
+/* ========================= */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -139,21 +43,14 @@
   flex-wrap: wrap;
 }
 
-/* Flex list layout for navigation links */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
   width: 100%;
-  box-sizing: border-box;
   justify-content: space-between;
 }
 
-.nav-links li {
-  /* Placeholder for styling individual list items */
-}
-
-/* Style for navigation buttons */
 .nav-links li a {
   display: inline-block;
   background: #ffffff;
@@ -161,177 +58,148 @@
   text-decoration: none;
   font-size: 0.95rem;
   padding: 8px 14px;
-  border-radius: 6px;
-  border-color: black;
-  box-shadow: 0 5px 0 #e0e0e0;
   border: 1px solid #d6d6d6;
-  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease;
+  border-radius: 6px;
+  box-shadow: 0 5px 0 #e0e0e0;
+  transition: transform 120ms ease, box-shadow 120ms ease;
 }
 
-/* Hover effect for nav buttons */
 .nav-links li a:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 0 #d0d0d0;
-  background-color: #ffffff;
 }
 
-/* Active (clicked) state for nav buttons */
 .nav-links li a:active {
   transform: translateY(0);
   box-shadow: 0 3px 0 #cfcfcf;
   background-color: #f7f7f7;
 }
 
-/* Reset spacing and use border-box model globally */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Responsive Nav */
+@media (max-width: 700px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .nav-links li a {
+    width: 100%;
+    text-align: center;
+  }
 }
 
-/* Full height for page layout */
-body, html {
-  height: 100%;
-  font-family: 'Roboto', Arial, sans-serif;
-  color: #7f9cf5;
-}
-
-/* Center page-wrapper and limit width to 50% of viewport */
-.page-wrapper {
-  width: 50vw;
-  margin: 0 auto;
-  min-height: 100vh;
-  background-color: white;
-}
-
-/* Center content horizontally inside the body */
-body {
-  background-color: #f2f2f2;
-  display: flex;
-  justify-content: center;
-}
-
-/* Flexbox container occupying 1/3 of viewport dimensions */
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* ========================= */
+/* 🎯 HEADER / LOGO AREA    */
+/* ========================= */
+.TopLogo {
   width: 33.33%;
-  height: 33.33%;
+  display: flex;
+  margin-right: 2cm;
+  margin-top: 1cm;;
+  align-items: center;
 }
 
-/* Allow absolute positioning within page-wrapper */
-.page-wrapper {
-  position: relative;
+.TopLogo img {
+  max-width: 450%;
+  height: auto;
 }
 
-/* Position .MasterTheBow at top-right and scale it down */
 .MasterTheBow {
   position: absolute;
   top: 0;
   right: 0;
   width: 16.665%;
-  height: auto;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  box-sizing: border-box;
   transform: scale(0.6);
   transform-origin: top right;
 }
 
-/* Logo container aligned to left */
-.TopLogo {
-  width: 33.33%;
-  display: flex;
-  margin-right: 2cm;
-  align-items: center;
-}
-
-/* Scale up logo image significantly */
-.TopLogo img {
-  max-width: 500%;
-  height: auto;
-}
-
-/* Scale up image inside .MasterTheBow */
 .MasterTheBow img {
   max-width: 400%;
   height: auto;
-  object-fit: right;
+  object-fit: contain;
 }
 
-/* Layout for the search bar section */
+/* ========================= */
+/* 🔍 SEARCH BAR            */
+/* ========================= */
 .SearchBar {
-  width: 150%;
+  width: 50%;
   height: auto;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
-/* Styled input field with embedded search icon */
 .search-input {
   width: 60%;
   max-width: 420px;
   height: 34px;
-  padding: 6px 12px;
+  padding: 6px 12px 6px 12px;
   font-size: 0.95rem;
-  line-height: 1.2;
   border-radius: 6px;
   border: 2px solid #ccc;
   background-image: url("../HTML/Images/SearchIcon.png");
   background-repeat: no-repeat;
   background-position: right 3px center;
   background-size: 25px 25px;
-  padding-right: 10px;
+  padding-right: 36px; /* For icon */
 }
 
-/* Highlight border on focus */
 .search-input:focus {
-  outline: gray;
+  outline: none;
   border-color: #0057cc;
 }
 
-/* Full-width grid layout for main content area */
+/* ========================= */
+/* 🧩 MAIN LAYOUT GRID      */
+/* ========================= */
 .main-container {
   width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
   overflow-x: auto;
   margin: 0 auto;
   padding: 10px;
-  /* Prevent children from overflowing */
   display: grid;
   grid-template-columns: 2fr 1fr;
-  align-items: stretch;
   grid-auto-rows: 1fr;
   gap: 24px;
+  align-items: stretch;
 }
 
-/* Add colored border and rounded corners to sections */
 .left-section, .right-section {
   background: #fafafa;
   padding: 16px;
   border-radius: 16px;
   border: 12.5px solid #0fb9e3;
   height: 350px;
-  margin-left: -5px;
+}
+
+.left-section {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 16px;
+  width: 30vw;
+  margin-left: 4.5vw !important;
 }
 
 .right-section {
   margin-left: -13.5vw !important;
-  margin-right: auto !important;
 }
 
-/* Grid of icon tiles inside section */
+/* ========================= */
+/* 🧊 ICON GRID             */
+/* ========================= */
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-top: 5px;
 }
 
-/* Individual icon boxes with styling */
 .icon-box {
   background: #fff;
   padding: 5px;
@@ -339,18 +207,60 @@ body {
   border-radius: 4px;
 }
 
-/* Search icon styling (for button or image) */
-.search-icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  color: blue;
+/* Large Icon */
+.icon-box-Large {
+  grid-column: 1;
+  width: 10px;
 }
 
-/* Visual feedback on hover */
-.search-icon:hover {
-  opacity: 0.7;
+.icon-box-Large img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px;
 }
+
+/* Small Icon */
+.icon-box-Small {
+  grid-column: 2;
+  margin-left: auto;
+  margin-right: 40px;
+  min-width: 50px;
+  max-width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: flex-start;
+}
+
+/* Responsive scaling for icons */
+@media (max-width: 900px) {
+  .icon-box-Small {
+    width: 30vw;
+    margin-left: 0;
+  }
+}
+@media (max-width: 600px) {
+  .icon-box-Small {
+    width: 90vw;
+    margin-left: 0;
+  }
+}
+
+/* ========================= */
+/* 🧱 THREE BOTTOM SECTIONS */
+/* ========================= */
+.three-bottom-sections {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  padding-left: 5vw;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
 .bottom-left, .bottom-center, .bottom-right {
   flex: 1 1 0;
   border: 2px solid gray;
@@ -358,13 +268,12 @@ body {
   box-sizing: border-box;
 }
 
-.bottom-center img{
-  margin: 0 12px;
-  height: auto;
-  max-width: 45vw;
+.bottom-center img {
   display: block;
   margin: 0 auto;
+  max-width: 45vw;
   border-radius: 16px;
+  height: auto;
 }
 
 .bottom-left button, .bottom-right button {
@@ -380,24 +289,39 @@ body {
   border-radius: 6px;
   border: 1px solid #d6d6d6;
   box-shadow: 0 5px 0 #e0e0e0;
-  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease;
+  transition: transform 120ms ease, box-shadow 120ms ease;
   font-family: 'Roboto', Arial, sans-serif;
   cursor: pointer;
 }
 
-.bottom-left button:hover, .bottom-right button:hover {
+.bottom-left button:hover,
+.bottom-right button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 0 #d0d0d0;
-  background-color: #ffffff;
 }
 
-.bottom-left button:active, .bottom-right button:active {
+.bottom-left button:active,
+.bottom-right button:active {
   transform: translateY(0);
   box-shadow: 0 3px 0 #cfcfcf;
   background-color: #f7f7f7;
 }
 
-/* Make sure links and buttons inherit the color */
-a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
-  color: #2d317e;
+/* ========================= */
+/* 📱 MEDIA QUERIES         */
+/* ========================= */
+@media (max-width: 900px) {
+  .main-container {
+    padding: 4vw;
+    grid-template-columns: 1fr;
+    gap: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    padding: 2vw;
+    grid-template-columns: 1fr;
+    gap: 1vw;
+  }
 }
