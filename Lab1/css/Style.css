@@ -96,13 +96,18 @@ a, button, h1, h2, h3, h4, h5, h6, p, li, input, label {
   width: 33.33%;
   display: flex;
   margin-right: 2cm;
-  margin-top: 1cm;;
+  margin-top: 0.5cm;
   align-items: center;
+  margin-left: 40px;
 }
 
 .TopLogo img {
-  max-width: 450%;
+  width: 100%;
   height: auto;
+  max-width: 300px;
+  min-width: 80px;
+  object-fit: contain;
+  display: block;
 }
 
 .MasterTheBow {
